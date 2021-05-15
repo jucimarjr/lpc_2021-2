@@ -78,20 +78,11 @@ def draw_ball():
     turtle_ball.goto(0, 0)
 
 
-def move_player_one_down():
-    player_one_y_position = turtle_player_one_pen.ycor()
-    if player_one_y_position > -325:
-        player_one_y_position -= 25
-    else:
-        player_one_y_position = -325
-    turtle_player_one_pen.sety(player_one_y_position)
-
-
 def move_player_down(key):
     player_map_control = {'s': turtle_player_one_pen,
                           'Down': turtle_player_two_pen}
     player_position = player_map_control[key].ycor()
-    if player_position > -32:
+    if player_position > -325:
         player_position -= 25
     else:
         player_position = -325
