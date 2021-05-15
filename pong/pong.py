@@ -87,6 +87,9 @@ if __name__ == '__main__':
     turtle_player_two_pen = turtle.Turtle()
     turtle_ball = turtle.Turtle()
 
+    player_one_score = 0
+    player_two_score = 0
+
     create_screen()
     setup_turtle_border_pen()
     move_turtle_border_pen_to_bottom_left()
