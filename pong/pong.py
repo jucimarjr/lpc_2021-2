@@ -3,7 +3,7 @@ import turtle
 
 def create_screen():
     # draw screen
-    screen = turtle.Screen()
+
     screen.title("My Pong")
     screen.bgcolor("black")
     screen.setup(width=1000, height=750)
@@ -79,7 +79,33 @@ def draw_ball():
     turtle_ball.dy = 1
 
 
+def move_player_one_up():
+    print("Move player 1 up")
+
+
+def move_player_one_down():
+    print("Move player 1 down")
+
+
+def move_player_two_up():
+    print("Move player 2 up")
+
+
+def move_player_two_down():
+    print("Move player 2 down")
+
+
+def setup_players_control():
+    screen.listen()
+    screen.onkeypress(move_player_one_up, "w")
+    screen.onkeypress(move_player_one_down, "s")
+    screen.onkeypress(move_player_two_up, "Up")
+    screen.onkeypress(move_player_two_down, "Down")
+
+
 if __name__ == '__main__':
+    screen = turtle.Screen()
+
     turtle_border_pen = turtle.Turtle()
     turtle_hud_pen = turtle.Turtle()
 
@@ -107,5 +133,7 @@ if __name__ == '__main__':
 
     # draw ball
     draw_ball()
+
+    setup_players_control()
 
     turtle.done()
