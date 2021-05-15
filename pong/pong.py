@@ -47,6 +47,29 @@ def move_turtle_hud_pen_and_draw_score():
     turtle_hud_pen.write("0 : 0", align="center", font=("Press Start 2P", 24, "normal"))
 
 
+def draw_and_move_player_one():
+
+    turtle_player_one_pen.hideturtle()
+    turtle_player_one_pen.speed(0)
+    turtle_player_one_pen.shape("square")
+    turtle_player_one_pen.color("white")
+    turtle_player_one_pen.shapesize(stretch_wid=5, stretch_len=1)
+    turtle_player_one_pen.penup()
+    turtle_player_one_pen.goto(-450, 0)
+    turtle_player_one_pen.showturtle()
+
+
+def draw_player_two():
+    turtle_player_two_pen.hideturtle()
+    turtle_player_two_pen.speed(0)
+    turtle_player_two_pen.shape("square")
+    turtle_player_two_pen.color("white")
+    turtle_player_two_pen.shapesize(stretch_wid=5, stretch_len=1)
+    turtle_player_two_pen.penup()
+    turtle_player_two_pen.goto(450, 0)
+    turtle_player_two_pen.showturtle()
+
+
 if __name__ == '__main__':
     turtle_border_pen = turtle.Turtle()
     turtle_hud_pen = turtle.Turtle()
@@ -63,5 +86,11 @@ if __name__ == '__main__':
 
     setup_turtle_hud_pen()
     move_turtle_hud_pen_and_draw_score()
+
+    # draw paddle 1
+    draw_and_move_player_one()
+
+    # draw paddle 2
+    draw_player_two()
 
     turtle.done()
