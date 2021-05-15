@@ -80,7 +80,12 @@ def draw_ball():
 
 
 def move_player_one_up():
-    print("Move player 1 up")
+    player_one_y_position = turtle_player_one_pen.ycor()
+    if player_one_y_position < 325:
+        player_one_y_position += 25
+    else:
+        player_one_y_position = 325
+    turtle_player_one_pen.sety(player_one_y_position)
 
 
 def move_player_one_down():
