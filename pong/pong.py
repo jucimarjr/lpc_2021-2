@@ -69,12 +69,23 @@ def draw_player_two():
     turtle_player_two_pen.showturtle()
 
 
+def draw_ball():
+    turtle_ball.speed(0)
+    turtle_ball.shape("square")
+    turtle_ball.color("white")
+    turtle_ball.penup()
+    turtle_ball.goto(0, 0)
+    turtle_ball.dx = 1
+    turtle_ball.dy = 1
+
+
 if __name__ == '__main__':
     turtle_border_pen = turtle.Turtle()
     turtle_hud_pen = turtle.Turtle()
 
     turtle_player_one_pen = turtle.Turtle()
     turtle_player_two_pen = turtle.Turtle()
+    turtle_ball = turtle.Turtle()
 
     create_screen()
     setup_turtle_border_pen()
@@ -82,7 +93,6 @@ if __name__ == '__main__':
     draw_canvas_border()
 
     # head-up display
-
     setup_turtle_hud_pen()
     move_turtle_hud_pen_and_draw_score()
 
@@ -91,5 +101,8 @@ if __name__ == '__main__':
 
     # draw paddle 2
     draw_player_two()
+
+    # draw ball
+    draw_ball()
 
     turtle.done()
