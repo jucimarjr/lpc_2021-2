@@ -51,6 +51,9 @@ if __name__ == '__main__':
     turtle_border_pen = turtle.Turtle()
     turtle_hud_pen = turtle.Turtle()
 
+    turtle_player_one_pen = turtle.Turtle()
+    turtle_player_two_pen = turtle.Turtle()
+
     create_screen()
     setup_turtle_border_pen()
     move_turtle_border_pen_to_bottom_left()
