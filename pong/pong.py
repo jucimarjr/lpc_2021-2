@@ -173,7 +173,7 @@ if __name__ == '__main__':
 
     player_one_score = 0
     player_two_score = 0
-    turtle_ball_x_velocity = 1
+    turtle_ball_x_velocity = 5
     turtle_ball_y_velocity = 0
 
     create_screen()
@@ -217,3 +217,11 @@ if __name__ == '__main__':
                 turtle_ball_y_velocity -= 1
             elif ball_touched_player_one_on_center():
                 turtle_ball_y_velocity = 0
+
+        if turtle_ball.ycor() > 365:
+            turtle_ball.sety(365)
+            turtle_ball_y_velocity *= -1
+
+        if turtle_ball.ycor() < -365:
+            turtle_ball.sety(-365)
+            turtle_ball_y_velocity *= -1
