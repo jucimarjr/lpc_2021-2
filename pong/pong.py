@@ -1,3 +1,4 @@
+import functools
 import turtle
 
 
@@ -77,15 +78,6 @@ def draw_ball():
     turtle_ball.goto(0, 0)
 
 
-def move_player_one_up():
-    player_one_y_position = turtle_player_one_pen.ycor()
-    if player_one_y_position < 325:
-        player_one_y_position += 25
-    else:
-        player_one_y_position = 325
-    turtle_player_one_pen.sety(player_one_y_position)
-
-
 def move_player_one_down():
     player_one_y_position = turtle_player_one_pen.ycor()
     if player_one_y_position > -325:
@@ -95,30 +87,34 @@ def move_player_one_down():
     turtle_player_one_pen.sety(player_one_y_position)
 
 
-def move_player_two_up():
-    player_two_y_position = turtle_player_two_pen.ycor()
-    if player_two_y_position < 325:
-        player_two_y_position += 25
+def move_player_down(key):
+    player_map_control = {'s': turtle_player_one_pen,
+                          'Down': turtle_player_two_pen}
+    player_position = player_map_control[key].ycor()
+    if player_position > -32:
+        player_position -= 25
     else:
-        player_two_y_position = 325
-    turtle_player_two_pen.sety(player_two_y_position)
+        player_position = -325
+    player_map_control[key].sety(player_position)
 
 
-def move_player_two_down():
-    player_two_y_position = turtle_player_two_pen.ycor()
-    if player_two_y_position > -325:
-        player_two_y_position -= 25
+def move_player_up(key):
+    player_map_control = {'w': turtle_player_one_pen,
+                          'Up': turtle_player_two_pen}
+    player_position = player_map_control[key].ycor()
+    if player_position < 325:
+        player_position += 25
     else:
-        player_two_y_position = -325
-    turtle_player_two_pen.sety(player_two_y_position)
+        player_position = 325
+    player_map_control[key].sety(player_position)
 
 
 def setup_players_control():
     screen.listen()
-    screen.onkeypress(move_player_one_up, "w")
-    screen.onkeypress(move_player_one_down, "s")
-    screen.onkeypress(move_player_two_up, "Up")
-    screen.onkeypress(move_player_two_down, "Down")
+    screen.onkeypress(functools.partial(move_player_up, "w"), key="w")
+    screen.onkeypress(functools.partial(move_player_down, "s"), key="s")
+    screen.onkeypress(functools.partial(move_player_up, "Up"), key="Up")
+    screen.onkeypress(functools.partial(move_player_down, "Down"), key="Down")
 
 
 def ball_touched_player_two_horizontally():
