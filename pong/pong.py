@@ -107,7 +107,12 @@ def move_player_two_up():
 
 
 def move_player_two_down():
-    print("Move player 2 down")
+    player_two_y_position = turtle_player_two_pen.ycor()
+    if player_two_y_position > -325:
+        player_two_y_position -= 25
+    else:
+        player_two_y_position = -325
+    turtle_player_two_pen.sety(player_two_y_position)
 
 
 def setup_players_control():
