@@ -133,10 +133,6 @@ def ball_touched_player_two_top():
     return turtle_player_two_pen.ycor() + 60 > turtle_ball.ycor() > turtle_player_two_pen.ycor()
 
 
-def ball_touched_player_two_on_center():
-    return turtle_player_two_pen.ycor() + 10 > turtle_ball.ycor() > turtle_player_two_pen.ycor() - 10
-
-
 def ball_touched_player_one_horizontally():
     return -425 > turtle_ball.xcor() > - 435
 
@@ -153,8 +149,8 @@ def ball_hit_player_vertically_on_bottom(turtle_player):
     return turtle_player.ycor() > turtle_ball.ycor() > turtle_player.ycor() - 60
 
 
-def ball_touched_player_one_on_center():
-    return turtle_player_one_pen.ycor() + 10 > turtle_ball.ycor() > turtle_player_one_pen.ycor() - 10
+def ball_hit_player_on_center(turtle_player):
+    return turtle_player.ycor() + 10 > turtle_ball.ycor() > turtle_player.ycor() - 10
 
 
 if __name__ == '__main__':
@@ -202,7 +198,7 @@ if __name__ == '__main__':
                 turtle_ball_y_velocity = +1
             elif ball_hit_player_vertically_on_bottom(turtle_player_two_pen):
                 turtle_ball_y_velocity -= 1
-            elif ball_touched_player_two_on_center():
+            elif ball_hit_player_on_center(turtle_player_two_pen):
                 turtle_ball_y_velocity = 0
 
         if ball_touched_player_one_horizontally() and ball_touched_player_one_vertically():
@@ -211,7 +207,7 @@ if __name__ == '__main__':
                 turtle_ball_y_velocity += 1
             elif ball_hit_player_vertically_on_bottom(turtle_player_one_pen):
                 turtle_ball_y_velocity -= 1
-            elif ball_touched_player_one_on_center():
+            elif ball_hit_player_on_center(turtle_player_one_pen):
                 turtle_ball_y_velocity = 0
 
         if turtle_ball.ycor() > 365:
