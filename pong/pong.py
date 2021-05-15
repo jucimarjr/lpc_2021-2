@@ -1,4 +1,5 @@
 import functools
+import os
 import turtle
 
 
@@ -181,6 +182,7 @@ if __name__ == '__main__':
 
         if ball_touched_player_two_horizontally() and ball_touched_player_two_vertically():
             turtle_ball_x_velocity *= -1
+            os.system("bounce.wav")
             if ball_hit_player_vertically_on_top(turtle_player_two_pen):
                 turtle_ball_y_velocity += 10
             elif ball_hit_player_vertically_on_bottom(turtle_player_two_pen):
@@ -190,6 +192,7 @@ if __name__ == '__main__':
 
         if ball_touched_player_one_horizontally() and ball_touched_player_one_vertically():
             turtle_ball_x_velocity *= -1
+            os.system("bounce.wav")
             if ball_hit_player_vertically_on_top(turtle_player_one_pen):
                 turtle_ball_y_velocity += 10
             elif ball_hit_player_vertically_on_bottom(turtle_player_one_pen):
@@ -212,6 +215,7 @@ if __name__ == '__main__':
                                  font=("Press Start 2P", 24, "normal"))
             turtle_ball.setposition(0, 0)
             turtle_ball_y_velocity = 0
+            os.system("bleep_sound.wav")
 
         if turtle_ball.xcor() < -490:
             player_two_score += 1
@@ -220,3 +224,4 @@ if __name__ == '__main__':
                                  font=("Press Start 2P", 24, "normal"))
             turtle_ball.setposition(0, 0)
             turtle_ball_y_velocity = 0
+            os.system("bleep_sound.wav")
