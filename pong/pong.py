@@ -191,18 +191,18 @@ if __name__ == '__main__':
         if ball_touched_player_two_horizontally() and ball_touched_player_two_vertically():
             turtle_ball_x_velocity *= -1
             if ball_hit_player_vertically_on_top(turtle_player_two_pen):
-                turtle_ball_y_velocity = +1
+                turtle_ball_y_velocity += 10
             elif ball_hit_player_vertically_on_bottom(turtle_player_two_pen):
-                turtle_ball_y_velocity -= 1
+                turtle_ball_y_velocity -= 10
             elif ball_hit_player_on_center(turtle_player_two_pen):
                 turtle_ball_y_velocity = 0
 
         if ball_touched_player_one_horizontally() and ball_touched_player_one_vertically():
             turtle_ball_x_velocity *= -1
             if ball_hit_player_vertically_on_top(turtle_player_one_pen):
-                turtle_ball_y_velocity += 1
+                turtle_ball_y_velocity += 10
             elif ball_hit_player_vertically_on_bottom(turtle_player_one_pen):
-                turtle_ball_y_velocity -= 1
+                turtle_ball_y_velocity -= 10
             elif ball_hit_player_on_center(turtle_player_one_pen):
                 turtle_ball_y_velocity = 0
 
@@ -220,6 +220,7 @@ if __name__ == '__main__':
             turtle_hud_pen.write("{} : {}".format(player_one_score, player_two_score), align="center",
                                  font=("Press Start 2P", 24, "normal"))
             turtle_ball.setposition(0, 0)
+            turtle_ball_y_velocity = 0
 
         if turtle_ball.xcor() < -490:
             player_two_score += 1
@@ -227,3 +228,4 @@ if __name__ == '__main__':
             turtle_hud_pen.write("{} : {}".format(player_one_score, player_two_score), align="center",
                                  font=("Press Start 2P", 24, "normal"))
             turtle_ball.setposition(0, 0)
+            turtle_ball_y_velocity = 0
