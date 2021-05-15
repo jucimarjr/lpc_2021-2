@@ -122,7 +122,7 @@ def setup_players_control():
 
 
 def ball_touched_player_two_horizontally():
-    return turtle_ball.xcor() > 425
+    return 425 < turtle_ball.xcor() < 435
 
 
 def ball_touched_player_two_vertically():
@@ -130,7 +130,7 @@ def ball_touched_player_two_vertically():
 
 
 def ball_touched_player_one_horizontally():
-    return turtle_ball.xcor() < -425
+    return -425 > turtle_ball.xcor() > - 435
 
 
 def ball_touched_player_one_vertically():
