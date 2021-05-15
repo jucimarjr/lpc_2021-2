@@ -225,3 +225,17 @@ if __name__ == '__main__':
         if turtle_ball.ycor() < -365:
             turtle_ball.sety(-365)
             turtle_ball_y_velocity *= -1
+
+        if turtle_ball.xcor() > 490:
+            player_one_score += 1
+            turtle_hud_pen.clear()
+            turtle_hud_pen.write("{} : {}".format(player_one_score, player_two_score), align="center",
+                                 font=("Press Start 2P", 24, "normal"))
+            turtle_ball.setposition(0, 0)
+
+        if turtle_ball.xcor() < -490:
+            player_two_score += 1
+            turtle_hud_pen.clear()
+            turtle_hud_pen.write("{} : {}".format(player_one_score, player_two_score), align="center",
+                                 font=("Press Start 2P", 24, "normal"))
+            turtle_ball.setposition(0, 0)
