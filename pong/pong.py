@@ -149,6 +149,18 @@ def ball_touched_player_one_vertically():
     return turtle_player_one_pen.ycor() + 60 > turtle_ball.ycor() > turtle_player_one_pen.ycor() - 60
 
 
+def ball_touched_player_one_top():
+    return turtle_player_one_pen.ycor() + 60 > turtle_ball.ycor() > turtle_player_one_pen.ycor()
+
+
+def ball_touched_player_one_bottom():
+    return turtle_player_one_pen.ycor() > turtle_ball.ycor() > turtle_player_one_pen.ycor() - 60
+
+
+def ball_touched_player_one_on_center():
+    return turtle_player_one_pen.ycor() + 10 > turtle_ball.ycor() > turtle_player_one_pen.ycor() - 10
+
+
 if __name__ == '__main__':
     screen = turtle.Screen()
 
@@ -162,7 +174,7 @@ if __name__ == '__main__':
     player_one_score = 0
     player_two_score = 0
     turtle_ball_x_velocity = 1
-    turtle_ball_y_velocity = 1
+    turtle_ball_y_velocity = 0
 
     create_screen()
     setup_turtle_border_pen()
@@ -199,3 +211,9 @@ if __name__ == '__main__':
 
         if ball_touched_player_one_horizontally() and ball_touched_player_one_vertically():
             turtle_ball_x_velocity *= -1
+            if ball_touched_player_one_top():
+                turtle_ball_y_velocity += 1
+            elif ball_touched_player_one_bottom():
+                turtle_ball_y_velocity -= 1
+            elif ball_touched_player_one_on_center():
+                turtle_ball_y_velocity = 0
