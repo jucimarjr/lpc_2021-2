@@ -75,8 +75,6 @@ def draw_ball():
     turtle_ball.color("white")
     turtle_ball.penup()
     turtle_ball.goto(0, 0)
-    turtle_ball.dx = 1
-    turtle_ball.dy = 1
 
 
 def move_player_one_up():
@@ -123,6 +121,14 @@ def setup_players_control():
     screen.onkeypress(move_player_two_down, "Down")
 
 
+def ball_touched_player_two_horizontally():
+    return turtle_ball.xcor() > 425
+
+
+def ball_touched_player_two_vertically():
+    return turtle_player_two_pen.ycor() + 60 > turtle_ball.ycor() > turtle_player_two_pen.ycor() - 60
+
+
 if __name__ == '__main__':
     screen = turtle.Screen()
 
@@ -135,6 +141,8 @@ if __name__ == '__main__':
 
     player_one_score = 0
     player_two_score = 0
+    turtle_ball_x_velocity = 1
+    turtle_ball_y_velocity = 1
 
     create_screen()
     setup_turtle_border_pen()
@@ -156,4 +164,8 @@ if __name__ == '__main__':
 
     setup_players_control()
 
-    turtle.done()
+    while True:
+        turtle_ball.setx(turtle_ball.xcor() + turtle_ball_x_velocity)
+
+        if ball_touched_player_two_horizontally() and ball_touched_player_two_vertically():
+            turtle_ball_x_velocity *= -1
