@@ -47,8 +47,7 @@ def move_turtle_hud_pen_and_draw_score():
     turtle_hud_pen.write("0 : 0", align="center", font=("Press Start 2P", 24, "normal"))
 
 
-def draw_and_move_player_one():
-
+def draw_player_one():
     turtle_player_one_pen.hideturtle()
     turtle_player_one_pen.speed(0)
     turtle_player_one_pen.shape("square")
@@ -88,7 +87,7 @@ if __name__ == '__main__':
     move_turtle_hud_pen_and_draw_score()
 
     # draw paddle 1
-    draw_and_move_player_one()
+    draw_player_one()
 
     # draw paddle 2
     draw_player_two()
