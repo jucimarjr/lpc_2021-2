@@ -133,10 +133,6 @@ def ball_touched_player_two_top():
     return turtle_player_two_pen.ycor() + 60 > turtle_ball.ycor() > turtle_player_two_pen.ycor()
 
 
-def ball_touched_player_two_bottom():
-    return turtle_player_two_pen.ycor() > turtle_ball.ycor() > turtle_player_two_pen.ycor() - 60
-
-
 def ball_touched_player_two_on_center():
     return turtle_player_two_pen.ycor() + 10 > turtle_ball.ycor() > turtle_player_two_pen.ycor() - 10
 
@@ -149,12 +145,12 @@ def ball_touched_player_one_vertically():
     return turtle_player_one_pen.ycor() + 60 > turtle_ball.ycor() > turtle_player_one_pen.ycor() - 60
 
 
-def ball_touched_player_vertically_on_top(turtle_player):
+def ball_hit_player_vertically_on_top(turtle_player):
     return turtle_player.ycor() + 60 > turtle_ball.ycor() > turtle_player.ycor()
 
 
-def ball_touched_player_one_bottom():
-    return turtle_player_one_pen.ycor() > turtle_ball.ycor() > turtle_player_one_pen.ycor() - 60
+def ball_hit_player_vertically_on_bottom(turtle_player):
+    return turtle_player.ycor() > turtle_ball.ycor() > turtle_player.ycor() - 60
 
 
 def ball_touched_player_one_on_center():
@@ -202,18 +198,18 @@ if __name__ == '__main__':
 
         if ball_touched_player_two_horizontally() and ball_touched_player_two_vertically():
             turtle_ball_x_velocity *= -1
-            if ball_touched_player_vertically_on_top(turtle_player_two_pen):
+            if ball_hit_player_vertically_on_top(turtle_player_two_pen):
                 turtle_ball_y_velocity = +1
-            elif ball_touched_player_two_bottom():
+            elif ball_hit_player_vertically_on_bottom(turtle_player_two_pen):
                 turtle_ball_y_velocity -= 1
             elif ball_touched_player_two_on_center():
                 turtle_ball_y_velocity = 0
 
         if ball_touched_player_one_horizontally() and ball_touched_player_one_vertically():
             turtle_ball_x_velocity *= -1
-            if ball_touched_player_vertically_on_top(turtle_player_one_pen):
+            if ball_hit_player_vertically_on_top(turtle_player_one_pen):
                 turtle_ball_y_velocity += 1
-            elif ball_touched_player_one_bottom():
+            elif ball_hit_player_vertically_on_bottom(turtle_player_one_pen):
                 turtle_ball_y_velocity -= 1
             elif ball_touched_player_one_on_center():
                 turtle_ball_y_velocity = 0
