@@ -98,7 +98,12 @@ def move_player_one_down():
 
 
 def move_player_two_up():
-    print("Move player 2 up")
+    player_two_y_position = turtle_player_two_pen.ycor()
+    if player_two_y_position < 325:
+        player_two_y_position += 25
+    else:
+        player_two_y_position = 325
+    turtle_player_two_pen.sety(player_two_y_position)
 
 
 def move_player_two_down():
