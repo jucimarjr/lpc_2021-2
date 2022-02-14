@@ -1,3 +1,6 @@
+# Jucimar Jr
+# 2022
+
 import pygame
 
 pygame.init()
